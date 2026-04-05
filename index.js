@@ -1,26 +1,18 @@
 // index.js — entry point
+// Designed to run as a Railway Cron Job (not always-on)
+// Railway starts the process, it runs the check, then exits
+// Schedule in Railway: 0 * * * * (every hour, every day)
 require('dotenv').config()
-const cron              = require('node-cron')
-const { startAll }      = require('./mqttClient')
+const { startAll } = require('./mqttClient')
 const { checkAndAlert } = require('./notify')
 
-const ALERT_CRON = process.env.ALERT_CRON || '0 * * * *' // every hour
+console.log('[app] WA Notifier starting...')
 
-console.log('[app] Starting WA Notifier...')
-
-// Connect to all MQTT brokers
+// Connect to brokers, wait for readings, check, then exit
 startAll()
 
-// Wait 10s for MQTT to receive initial readings, then run first check
-setTimeout(() => {
-  console.log('[app] Running initial check...')
-  checkAndAlert()
-}, 10_000)
-
-// Schedule recurring checks
-cron.schedule(ALERT_CRON, () => {
-  console.log('[app] Scheduled check triggered')
-  checkAndAlert()
-})
-
-console.log(`[app] Scheduler started — cron: "${ALERT_CRON}"`)
+setTimeout(async () => {
+  await checkAndAlert()
+  console.log('[app] Check complete — exiting')
+  process.exit(0)
+}, 5 * 60 * 1000) // wait 5 minutes for MQTT to receive readings
