@@ -1,0 +1,18 @@
+{
+  "name": "wa-notifier",
+  "version": "1.0.0",
+  "description": "WhatsApp alert service for MQTT vs API timestamp comparison",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mqtt": "^5.0.0",
+    "node-cron": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

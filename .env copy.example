@@ -1,0 +1,13 @@
+# Fonnte WhatsApp
+WA_TOKEN=your_fonnte_device_token
+WA_TARGET=120363XXXXXXXXXX@g.us
+
+# External API to compare against
+API_URL=https://weatherapi.blitztechnology.tech/test/0
+
+# Alert schedule (cron syntax) — default: every hour
+ALERT_CRON=0 * * * *
+
+# Thresholds in seconds
+LAGGING_THRESHOLD=3600    # 1 hour
+STALE_THRESHOLD=86400     # 24 hours
