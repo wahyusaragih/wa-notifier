@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: wa-notifier
+    runtime: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: WA_TOKEN
+        sync: false
+      - key: WA_TARGET
+        sync: false
+      - key: API_URL
+        sync: false
+      - key: ALERT_CRON
+        value: "0 * * * *"
+      - key: LAGGING_THRESHOLD
+        value: "3600"
+      - key: STALE_THRESHOLD
+        value: "86400"
