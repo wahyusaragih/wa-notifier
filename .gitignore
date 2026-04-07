@@ -1,16 +1,17 @@
-# Environment secrets — NEVER commit this
+# Secrets — never commit
 .env
 
-# Dependencies — reinstall with npm install
+# Dependencies
 node_modules/
-
-# OS junk
-.DS_Store
-Thumbs.db
 
 # Logs
 *.log
 npm-debug.log*
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Runtime
 .pid
