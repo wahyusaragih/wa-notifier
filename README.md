@@ -21,7 +21,7 @@ nano config.json
 ```bash
 WA_TOKEN=your_fonnte_device_token
 WA_TARGET=120363XXXXXXXXXX@g.us
-API_URL=https://weatherapi.blitztechnology.tech/test/0
+API_URL=https://api
 ALERT_CRON=0 */3 * * *     # every 3 hours
 LAGGING_THRESHOLD=3600     # 1 hour in seconds
 STALE_THRESHOLD=86400      # 24 hours in seconds
