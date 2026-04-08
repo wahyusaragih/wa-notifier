@@ -1,0 +1,13 @@
+{
+  "brokers": [
+    { "id": "broker1", "name": "Main", "host": "your.broker.ip", "port": 1883 }
+  ],
+  "topics": [
+    {
+      "broker_id": "broker1",
+      "topic": "inst/city/type/station",
+      "label": "Station Name",
+      "channel_count": 6
+    }
+  ]
+}
